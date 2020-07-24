@@ -1,0 +1,26 @@
+{
+  "name": "workouttracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jameygronewald/workoutTracker.git"
+  },
+  "author": "Jamey Gronewald",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jameygronewald/workoutTracker/issues"
+  },
+  "homepage": "https://github.com/jameygronewald/workoutTracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.25",
+    "nodemon": "^2.0.4"
+  }
+}
