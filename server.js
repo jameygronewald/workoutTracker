@@ -14,8 +14,16 @@ app.use(express.static('public'));
 // Routes
 app.use(viewsController);
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/userdb', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workoutTracker', { useNewUrlParser: true, useUnifiedTopology:true });
+const connection = mongoose.connection;
+
+connection.on('connected', () => {
+    console.log('Mongoose successfully connected.');
+});
+connection.on('connected', (err) => {
+    console.log('Mongoose connection error: ', err);
+});
 
 app.listen(PORT, () => {
-    console.log(`App running at http://localhost:${PORT}`)
+    console.log(`App running on http://localhost:${PORT}`)
 });
