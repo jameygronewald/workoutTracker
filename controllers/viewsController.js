@@ -13,4 +13,11 @@ router.get('/stats', (req, res) => {
     });
 });
 
+router.get('/exercise', (req, res) => {
+    fs.readFile(__dirname + '/../public/exercise.html', 'utf8', (err, response) => {
+        if (err) throw err;
+        else res.send(response);
+    });
+});
+
 module.exports = router;
