@@ -13,15 +13,14 @@ app.use(express.json());
 app.use(express.static('public'));
 
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workoutTracker', { useNewUrlParser: true, useUnifiedTopology:true });
-const connection = mongoose.connection;
-
-connection.on('connected', () => {
-    console.log('Mongoose successfully connected.');
-});
-connection.on('connected', (err) => {
+mongoose
+    .connect(process.env.MONGODB_URI || 'mongodb://localhost/workoutTracker', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+    console.log('Mongoose successfully connected.')
+    })
+    .catch(err => {
     console.log('Mongoose connection error: ', err);
-});
+    });
 
 // Routes
 app.use(viewsController);
